@@ -279,7 +279,7 @@ def VersionCompare():
     for vernum in match:
         log("Current Version = " + str(vernum))
     try:
-        link = Request_URL('https://raw.githubusercontent.com/Lunatixz/XBMC_Addons/master/script.pseudotv.live/addon.xml')  
+        link = Request_URL('https://raw.githubusercontent.com/7fever/PSTV/master/addon.xml')  
         link = link.replace('\r','').replace('\n','').replace('\t','').replace('&nbsp;','')
         match = re.compile('" version="(.+?)" name="PseudoTV Live"').findall(link)
     except:
@@ -301,9 +301,9 @@ def VersionCompare():
 #autoupdate modified from Blazetamer code.
 def UpdateFiles():
     log('UpdateFiles')
-    url='https://github.com/Lunatixz/XBMC_Addons/raw/master/zips/repository.lunatixz/repository.lunatixz-1.0.zip'
-    name = 'repository.lunatixz.zip' 
-    MSG = 'Lunatixz Repository Installed'    
+    url='https://github.com/7fever/script.pseudotv.live/raw/TEST/script.pseudotv.live.zip'
+    name = 'script.pseudotv.live.zip' 
+    MSG = 'PSTV Repository Installed'    
     path = xbmc.translatePath(os.path.join('special://home/addons','packages'))
     addonpath = xbmc.translatePath(os.path.join('special://','home/addons'))
     lib = os.path.join(path,name)
@@ -322,7 +322,7 @@ def UpdateFiles():
         all(lib,addonpath,'')
         log('extracted new package')
     except: 
-        MSG = 'Failed to install Lunatixz Repository, Try Again Later'
+        MSG = 'Failed to install PSTV Repository, Try Again Later'
         pass
     xbmc.executebuiltin("XBMC.UpdateLocalAddons()"); 
     xbmc.executebuiltin("Notification( %s, %s, %d, %s)" % ("PseudoTV Live", MSG, 1000, THUMB) )
